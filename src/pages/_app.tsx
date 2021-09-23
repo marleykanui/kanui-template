@@ -1,8 +1,14 @@
+// Third Party Styles
+import "../styles/tailwind.css";
+
+// Global Styles
+import "@/styles/global.scss";
 
 // Next Types
-import type { AppProps } from 'next/app'
+import type { NextPage } from "next";
+import type { AppProps } from "next/app";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
-export default MyApp
+const App: NextPage<AppProps> = ({ Component, pageProps }) => {
+  return <Component {...pageProps} />;
+};
+export default App;
