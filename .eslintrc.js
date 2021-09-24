@@ -16,5 +16,8 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  rules: {},
+  rules: {
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+  },
 };

@@ -1,5 +1,8 @@
+// Custom Renderer
+import { render } from "@/utilities/0-test-utils/TestWrapperContext";
+
 // React Testing Library
-import { render, screen, fireEvent } from "@testing-library/react";
+import { screen, fireEvent } from "@testing-library/react";
 
 // Component
 import EventExample from "../2-components/EventExample";

@@ -1,5 +1,8 @@
+// Custom Renderer
+import { render } from "@/utilities/0-test-utils/TestWrapperContext";
+
 // React Testing Library
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 
 // Component
 import IterativeExample from "../3-components/IterativeExample";

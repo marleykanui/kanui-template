@@ -14,16 +14,13 @@ import { AppState } from "@/redux/0-store/store";
 import { FC, SyntheticEvent } from "react";
 
 const ReduxExample: FC = () => {
-  // Local State
   const [value, setValue] = useState<string>("");
   const [reduxChanged, setReduxChanged] = useState(false);
 
-  // Global State
   const {
     ReduxExample: { reduxExample },
   } = useSelector<AppState, AppState>((state) => state);
 
-  // State Dispatch
   const dispatch = useDispatch();
 
   const handleDispatch = (e: SyntheticEvent) => {
@@ -39,6 +36,7 @@ const ReduxExample: FC = () => {
       <form onSubmit={handleDispatch}>
         <label htmlFor="ReduxExample" />
         <input
+          data-testid="redux-test-input-field"
           type="text"
           name="reduxExample"
           placeholder="Redux Example"
