@@ -1,0 +1,16 @@
+export const IterativeExampleData = [
+  { id: 1, text: "NextJS" },
+  { id: 2, text: "React" },
+  { id: 3, text: "Redux" },
+  { id: 4, text: "Typescript" },
+  { id: 5, text: "Jest" },
+  { id: 6, text: "React-Testing-Library" },
+  { id: 7, text: "ESLint" },
+  { id: 8, text: "Sass" },
+  { id: 9, text: "TailwindCSS" },
+  { id: 10, text: "ThreeJS" },
+  { id: 11, text: "React-Three-fiber" },
+  { id: 12, text: "Drei" },
+  { id: 13, text: "Node" },
+  { id: 14, text: "Express" },
+];

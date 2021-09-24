@@ -1,3 +1,6 @@
+// Store
+import { wrapper } from "@/redux/0-store/store";
+
 // Third Party Styles
 import "../styles/tailwind.css";
 
@@ -11,4 +14,4 @@ import type { AppProps } from "next/app";
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
   return <Component {...pageProps} />;
 };
-export default App;
+export default wrapper.withRedux(App);
