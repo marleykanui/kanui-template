@@ -6,6 +6,9 @@ module.exports = {
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "next",
     "next/core-web-vitals",
+    "plugin:jest/recommended",
+    "plugin:jest/style",
+    "plugin:testing-library/react",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {

@@ -10,8 +10,10 @@ import ReduxExample from "../2-components/ReduxExample";
 test("should render initial Redux State, change input field value, submit, and render new Redux State", () => {
   // Render Component
   render(<ReduxExample />);
+  // Get initial state text
+  const InitialStateText = screen.getByText("Redux Initial State");
   // Expect Initial State Value
-  expect(screen.getByText("Redux Initial State"));
+  expect(InitialStateText).toBeInTheDocument();
   // Get Input Field
   const ReduxExampleInputField = screen.getByTestId("redux-test-input-field");
   // Input New Entry
@@ -20,6 +22,10 @@ test("should render initial Redux State, change input field value, submit, and r
   });
   // Submit Entry
   fireEvent.click(screen.getByText("Submit"));
+  // Get Altered State
+  const AlteredStateText = screen.getByText(
+    "You have changed Redux state to: Invoked By Test"
+  );
   // Expect Altered State
-  expect(screen.getByText("You have changed Redux state to: Invoked By Test"));
+  expect(AlteredStateText).toBeInTheDocument();
 });
