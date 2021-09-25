@@ -1,11 +1,37 @@
+// MSW
+import { setupServer } from "msw/node";
+import { DefaultRequestBody, rest } from "msw";
+
 // Custom Renderer
 import { render } from "@/utilities/0-test-utils/TestWrapperContext";
 
 // React Testing Library
-import { screen, fireEvent } from "@testing-library/react";
+import {
+  screen,
+  fireEvent,
+  waitForElementToBeRemoved,
+} from "@testing-library/react";
 
 // Component
 import ApiCallExample from "../2-components/ApiCallExample";
+
+interface Response {
+  name: string;
+}
+
+// Mock Server
+const server = setupServer(
+  rest.get<DefaultRequestBody, Response>(
+    "/api/apiCallExample",
+    (req, res, ctx) => {
+      return res(ctx.json({ name: "ApiCallExample: Confirmed Working" }));
+    }
+  )
+);
+
+beforeAll(() => server.listen());
+afterAll(() => server.close());
+// afterEach(() => server.resetHandlers());
 
 describe("ApiCall Example Component", () => {
   describe("Rendered", () => {
@@ -21,15 +47,17 @@ describe("ApiCall Example Component", () => {
       expect(ApiCallButton).toBeInTheDocument();
     });
 
-    test("Clicking the 'Test Api Call' button, should render 'Calling...' in UI", () => {
+    test("Clicking the 'Test Api Call' button, should render 'Calling...' in UI", async () => {
       // Get "Test Api Call" button
       const ApiCallButton = screen.getByText("Test Api Call");
       // Trigger Api Call
       fireEvent.click(ApiCallButton);
-      // Wait for confirm message to appear
-      const CallMessage = screen.getByText("Calling...");
-      // Expect Confirm message to be in UI
-      expect(CallMessage).toBeInTheDocument();
+      // Wait for "Calling..." message to be removed
+      await waitForElementToBeRemoved(() => screen.getByText("Calling..."));
+      // Expect "ApiCallExample: Confirmed Working" to be Rendered in Dom
+      expect(
+        screen.getByText("ApiCallExample: Confirmed Working")
+      ).toBeInTheDocument();
     });
   });
 });

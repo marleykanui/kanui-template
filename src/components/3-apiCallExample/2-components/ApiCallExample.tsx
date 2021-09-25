@@ -4,6 +4,9 @@ import { useState } from "react";
 // API Utils
 import { apiCallExample } from "@/utilities/1-api-utils/apiCallExample";
 
+// Axios Types
+import { AxiosResponse } from "axios";
+
 const ApiCallExample = () => {
   const [data, setData] = useState<string>("");
   const [called, setCalled] = useState<boolean>(false);
@@ -11,7 +14,9 @@ const ApiCallExample = () => {
   const getData = async () => {
     setCalled(true);
     try {
-      const apiData = await apiCallExample("/api/apiCallExample");
+      const apiData: AxiosResponse = await apiCallExample(
+        "/api/apiCallExample"
+      );
       setData(apiData.data.name);
     } catch (error) {
       console.error(error);
