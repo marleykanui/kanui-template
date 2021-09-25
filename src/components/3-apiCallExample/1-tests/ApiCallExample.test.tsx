@@ -1,6 +1,6 @@
 // MSW
 import { setupServer } from "msw/node";
-import { DefaultRequestBody, rest } from "msw";
+import { rest } from "msw";
 
 // Custom Renderer
 import { render } from "@/utilities/0-test-utils/TestWrapperContext";
@@ -15,9 +15,11 @@ import {
 // Component
 import ApiCallExample from "../2-components/ApiCallExample";
 
-interface Response {
-  name: string;
-}
+// MSW Types
+import { DefaultRequestBody } from "msw";
+
+// Component Level Types
+import { Response } from "../0-types/ApiCallExample.test";
 
 // Mock Server
 const server = setupServer(
