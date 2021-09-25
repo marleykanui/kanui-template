@@ -19,7 +19,7 @@ import ApiCallExample from "../2-components/ApiCallExample";
 import { DefaultRequestBody } from "msw";
 
 // Component Level Types
-import { Response } from "../0-types/ApiCallExample.test";
+import { Response } from "../0-types/ApiCallExample";
 
 // Mock Server
 const server = setupServer(
