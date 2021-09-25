@@ -8,17 +8,20 @@ import { screen, fireEvent } from "@testing-library/react";
 import ReduxExample from "../2-components/ReduxExample";
 
 describe("Redux Example Component", () => {
-  describe("Should render the initial state and be able to update it", () => {
+  describe("Rendered", () => {
     beforeEach(() => {
       // Render Component
       render(<ReduxExample />);
     });
 
-    test("should render initial Redux State, change input field value, submit, and render new Redux State", () => {
+    test("Should display Initial State Text 'Redux Initial State'", () => {
       // Get initial state text
-      const InitialStateText = screen.getByText("Redux Initial State");
+      const GetInitialStateText = screen.getByText("Redux Initial State");
       // Expect Initial State Value
-      expect(InitialStateText).toBeInTheDocument();
+      expect(GetInitialStateText).toBeInTheDocument();
+    });
+
+    test("Should Input Data, Submit, Update Redux State, and Update UI", () => {
       // Get Input Field
       const ReduxExampleInputField = screen.getByTestId(
         "redux-test-input-field"
